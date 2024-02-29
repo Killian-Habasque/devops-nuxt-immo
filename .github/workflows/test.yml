@@ -22,5 +22,8 @@ jobs:
     - name: Build
       run: npm run build
 
+    - name: Start
+      run: npm start
+
     - name: Exécution des tests
       run: npm test
