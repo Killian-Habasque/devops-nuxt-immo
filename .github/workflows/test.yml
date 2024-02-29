@@ -2,12 +2,12 @@ name: toolkit-unit-tests
 on:
   push:
     branches:
-      - feature/homepage
+      - master
     paths-ignore:
       - '**.md'
-  # pull_request:
-  #   paths-ignore:
-  #     - '**.md'
+  pull_request:
+    paths-ignore:
+      - '**.md'
 
 jobs:
 
