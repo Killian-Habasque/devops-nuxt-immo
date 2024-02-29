@@ -36,8 +36,8 @@ jobs:
     - name: Compile
       run: npm run build
 
-    - name: Dev
-      run: npm run dev
+    - name: Start
+      run: npm run start &
 
     - name: npm test
       run: npm test -- --runInBand --forceExit
