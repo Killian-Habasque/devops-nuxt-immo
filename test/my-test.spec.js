@@ -1,22 +1,19 @@
-import { describe, test } from 'vitest'
+import { describe, test, expect } from 'vitest'
 import { setup, createPage } from '@nuxt/test-utils/e2e'
 
-const PAGES = {
-  contact: '/contact',
-}
-
-describe('Tests des différentes pages', async () => {
+describe('Mon test', async () => {
   await setup({
-    rootDir: '..',
-    configFile: '../nuxt.config.js',
-    server: true,
-    port: 3000,
-    build: true,
-    browser: true
+    browser: true,
+    browserOptions: {
+      type: 'chromium' 
+    }
   })
 
-  test('La page de contact devrait renvoyer une réponse 200', async () => {
-    const page = await createPage(PAGES.contact)
-  })
+  test('mon test', async () => {
+    const testPage = await createPage('/contact')
+    const formExists = await testPage.$eval('form', form => !!form);
 
+    expect(formExists).toBe(true);
+
+  })
 })
