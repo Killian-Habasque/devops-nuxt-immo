@@ -16,6 +16,11 @@ jobs:
     - name: Checkout du code
       uses: actions/checkout@v2
 
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16.x'
+
     - name: Installation des dépendances
       run: npm install
 
@@ -23,7 +28,7 @@ jobs:
       run: npm run build
 
     - name: Start
-      run: npm start
+      run: npm run start
 
     - name: Exécution des tests
       run: npm test
