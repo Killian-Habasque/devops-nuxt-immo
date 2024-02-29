@@ -1,34 +1,40 @@
-name: Tests
-
+name: toolkit-unit-tests
 on:
   push:
     branches:
-      - master
-  pull_request: 
-    branches: 
-      - master
-    
+      - feature/contact
+    paths-ignore:
+      - '**.md'
+  pull_request:
+    paths-ignore:
+      - '**.md'
+
 jobs:
-  test:
-    runs-on: ubuntu-latest
+
+  build:
+    name: Build
+
+    strategy:
+      matrix:
+        runs-on: [ubuntu-latest, macos-latest, windows-latest]
+      fail-fast: false
+
+    runs-on: ${{ matrix.runs-on }}
 
     steps:
-    - name: Checkout du code
-      uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v4
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v2
+    - name: Set Node.js 20.x
+      uses: actions/setup-node@v4
       with:
-        node-version: '20.10'
+        node-version: 20.x
 
-    - name: Installation des dépendances
+    - name: npm install
       run: npm install
 
-    - name: Installation de playwright
+    - name: Playwright
       run: npx playwright install
 
-    - name: Exécution des tests
+    - name: npm test
       run: npm test
-
-    - name: Build
-      run: npm run build
