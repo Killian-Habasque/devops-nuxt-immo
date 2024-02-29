@@ -5,7 +5,6 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "start": "nuxt start",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
@@ -13,6 +12,7 @@
   },
   "dependencies": {
     "nuxt": "^3.10.1",
+    "playwright": "^1.41.2",
     "vue": "^3.4.15",
     "vue-router": "^4.2.5"
   },
