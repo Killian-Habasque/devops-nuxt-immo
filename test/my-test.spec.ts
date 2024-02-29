@@ -13,7 +13,7 @@ describe('My test', async () => {
     
     const page = await createPage('/') 
   
-    const test = await createPage('/testsqdsqdqs')
+    const test = await createPage('/test')
     await test.getByRole('link', { name: 'test' }).click();
 
   })
