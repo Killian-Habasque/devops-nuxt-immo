@@ -24,6 +24,9 @@ jobs:
     - name: Installation des dépendances
       run: npm install
 
+    - name: Installation de playwright
+      run: npx playwright install
+
     - name: Build
       run: npm run build
 
